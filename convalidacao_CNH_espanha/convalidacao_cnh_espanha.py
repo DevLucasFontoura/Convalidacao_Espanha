@@ -1,21 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# ##INSTALANDO BIBLIOTECAS NECESSÁRIAS
-
-# In[ ]:
-
-
-#!sudo apt-get install tesseract-ocr tesseract-ocr-por
-#get_ipython().system('pip install opencv-python ')
-#get_ipython().system('pip install pytesseract')
-#get_ipython().system('pip install pyautogui')
-#get_ipython().system('pip install pygetwindow')
-
-
-# In[1]:
-
-
 import re
 import os
 import io
@@ -30,7 +12,6 @@ nest_asyncio.apply()
 from time import sleep
 from datetime import datetime
 
-# import requests
 from google.cloud import vision
 import pytesseract
 import cv2
@@ -40,14 +21,9 @@ import pygetwindow as gw
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 
-
-# In[62]:
-
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'convalidacao-cnh-23e2836c50f0.json'
 PASTA_ARQUIVOS_TXT = 'w:\\CGSIE\\CONVALIDACAO_CNH\\txt\\'
 PASTA_ARQUIVOS_PROCESSADOS = 'w:\\CGSIE\\CONVALIDACAO_CNH\\processados\\'
-# PASTA_ARQUIVOS_TXT = 'C:\\Automacao\\Convalidacao_CNH\\TXT\\'
-# PASTA_ARQUIVOS_HOD = '/content/drive/MyDrive/Ministério da Infraestrutura/Convalidacao_de_CNH/HOD/'
 PASTA_TEMP = 'C:\\Users\\Administrador\\HODObjs\\'
 PASTA_ARQUIVOS_HOD = 'C:\\Automacao\\Convalidacao_CNH\\HOD\\'
 PASTA_ELEMENTOS_TELA = PASTA_ARQUIVOS_HOD + 'elementos_tela\\'
@@ -148,7 +124,6 @@ def thresholding(image):
     return cv2.threshold(image, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
 
 def lerImagemHOD(caminho_imagem: str):
-    # extrairInformacoesVisionAPI(caminho_imagem)
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     imagem = cv2.imread(caminho_imagem)
     dim = redimensionarImagem(imagem.shape[1], imagem.shape[0], taxa=1)
@@ -341,7 +316,7 @@ def consultarCondutorRENACH(numero_registro):
         print('USUÁRIO NÃO EXISTE')
         pyautogui.press('F3')
         sleep(2) 
-        pyautogui.press('enter') # BINCO
+        pyautogui.press('enter') #BINCO
         return None
     else:
         print('USUÁRIO EXISTE')
@@ -413,10 +388,6 @@ def getDadosBasicos(arquivo):
     dt_nasc = getDado(arquivo, KEY_DT_NASC)
     categoria = getDado(arquivo, KEY_CATEGORIA)
     validade_cnh = getDado(arquivo, KEY_VALIDADE_CNH)
-    # sexo =  getDado(arquivo, KEY_SEXO)[2]
-    # cod_municipio = getDado(arquivo, KEY_MUNIC)
-    # municipio, cod_ibge = getMunicipio(cod_municipio)
-    # uf_end = getDado(arquivo, KEY_UF)
     return nome.strip(), dt_nasc.strip(), categoria.strip(), validade_cnh.strip()
 
 def getUltimaEmissao(arquivo):
@@ -604,71 +575,3 @@ def main():
         fecharJanelaAtiva(APP_HOD)
         fecharJanelaAtiva(APP_CONTROL_PANEL)
         apagarArquivos(PASTA_ARQUIVOS_HOD)
-
-# def efetuarLogin(pagina, usuario, senha):
-#     input_usuario = pagina.find_element(by=By.ID, value='login_user')
-#     sleep(1)
-#     input_senha = pagina.find_element(by=By.ID, value='login_password')
-#     sleep(1)
-#     input_usuario.send_keys(usuario)
-#     input_senha.send_keys(senha)
-#     # LER CAPTCHA KKKKKKKKKKKKKKKKKKK
-#     bt_login = pagina.find_eleme
-#     nt(by=By.ID, value='login_button')
-#     bt_login.click()
-
-
-# def lerImagemCaptcha():
-#     #img_captcha = pagina.find_element(by=By.ID, value='img_captcha_serpro_gov_br')
-#     from pytesseract import image_to_string
-#     img = cv2.imread(r'C:\Users\Administrador\Downloads\captcha.png')
-#     gry = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#     (h, w) = gry.shape[:2]
-#     gry = cv2.resize(gry, (w*2, h*2))
-#     cls = cv2.morphologyEx(gry, cv2.MORPH_CLOSE, None)
-#     thr = cv2.threshold(cls, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
-#     pytesseract.pytesseract.tesseract_cmd=r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-#     txt = image_to_string(thr)
-#     print(txt)
-
-
-# def criarBaseTreinamento(pagina):
-#     baixarImagemCaptcha(pagina)
-#     for _ in range(990):
-#         bt_atualizar_captcha = pagina.find_element(by=By.ID, value='btnRecarregar_captcha_serpro_gov_br')
-#         sleep(1)
-#         bt_atualizar_captcha.click()
-#         baixarImagemCaptcha(pagina)
-
-
-# def baixarImagemCaptcha(pagina):
-#     try:
-#         with open(BASE_CAPTCHA + str(uuid.uuid4()) + EXTENSAO_IMG, 'wb') as file:
-#             img_captcha = pagina.find_element(by=By.ID, value='img_captcha_serpro_gov_br')
-#             img_src = img_captcha.get_attribute("src")
-#             base64string = re.sub(r"^.*?/.*?,", "", img_src)
-#             image_as_bytes = str.encode(base64string)  # convert string to bytes
-#             recovered_img = base64.b64decode(image_as_bytes)  # decode base64string
-#             file.write(recovered_img)
-#             file.close()
-#     except Exception as ex:
-#         print(ex)
-
-# navegador = getInstanciaWD()
-# abrirPaginaHOD(navegador)
-# sleep(5)
-# # criarBaseTreinamento(navegador)
-
-# nao_processados = listarArquivosNaoProcessados()
-# print(nao_processados)
-
-# navegador = getInstanciaWD()
-# pagina = abrirPaginaHOD(navegador)
-# efetuarLogin(pagina, )
-
-# for arquivo in nao_processados:
-#   lerArquivoTXTCNH(arquivo)
-
-
-# arquivo_txt_cnh = lerArquivoTXTCNH
-
