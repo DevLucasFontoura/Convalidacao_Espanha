@@ -1,6 +1,6 @@
 ### Convalidacao_Espanha
 
-Com a alta demanda de pedidos da Espanha para verificar se os condutores tem alguma restrição, surgiu a ideia de altomatizar esse processo. Sendo assim Diego Patrick foi responsável pelo projeto e Lucas Fontoura ajudou e auxiliou na elaboração dele.
+Com a crescente demanda de pedidos provenientes da Espanha para verificação de restrições dos condutores, surgiu a ideia de automatizar o processo. Diego Patrick foi o responsável pelo projeto e Lucas Fontoura o auxiliou na sua elaboração.
 
 - Resumo:
 
