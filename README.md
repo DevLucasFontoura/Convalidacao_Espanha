@@ -6,11 +6,17 @@ Com a alta demanda de pedidos da Espanha para verificar se os condutores tem alg
 
   Este código é um script Python que realiza um conjunto de tarefas automatizadas.
   
-  A primeira função a ser executada é a "main()", que inicia o script e imprime a data e hora atuais. Em seguida, a função "carregarMunicipios()" é chamada.
+  A primeira função a ser executada é a "main()", que inicia o script e imprime a data e hora atuais. 
   
-  O código, então, tenta abrir um programa chamado "HOD" e executá-lo. Se ocorrer algum erro, uma exceção será lançada.
+  Em seguida, a função "carregarMunicipios()" é chamada.
   
-  Em seguida, o código lê os arquivos TXT na pasta especificada e executa uma série de ações para cada arquivo. Cada arquivo é lido e seus registros são processados. 
+  O código, então, tenta abrir um programa chamado "HOD" e executá-lo. 
+  
+  Se ocorrer algum erro, uma exceção será lançada.
+  
+  Em seguida, o código lê os arquivos TXT na pasta especificada e executa uma série de ações para cada arquivo. 
+  
+  Cada arquivo é lido e seus registros são processados. 
   
   Para cada registro, o código consulta informações sobre o condutor usando o número de registro do RENACH.
   
