@@ -2,7 +2,7 @@
 
 Com a alta demanda de pedidos da Espanha para verificar se os condutores tem alguma restrição, surgiu a ideia de altomatizar esse processo. Sendo assim Diego Patrick foi responsável pelo projeto e Lucas Fontoura ajudou e auxiliou na elaboração dele.
 
-Resumo:
+- Resumo:
   Este código é um script Python que realiza um conjunto de tarefas automatizadas.
   
   A primeira função a ser executada é a "main()", que inicia o script e imprime a data e hora atuais. Em seguida, a função "carregarMunicipios()" é chamada.
