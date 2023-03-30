@@ -1,8 +1,8 @@
-<font color="red">### Convalidacao_Espanha</font>
+**### Convalidacao_Espanha**
 
 Com a crescente demanda de pedidos provenientes da Espanha para verificação de restrições dos condutores, surgiu a ideia de automatizar o processo. Diego Patrick foi o responsável pelo projeto e Lucas Fontoura o auxiliou na sua elaboração.
 
-### Resumo do Projeto.
+**### Resumo do Projeto.**
 
 O Convalidacao_Espanha é um script Python que executa uma série de tarefas automatizadas. O código começa executando a função "main()", que imprime a data e hora atuais e inicia o script. Em seguida, a função "carregarMunicipios()" é chamada.
 
@@ -12,6 +12,6 @@ Cada arquivo é lido e seus registros são processados. Para cada registro, o c�
 
 Por fim, as informações coletadas são formatadas e escritas em um arquivo de saída. O código exclui os arquivos de entrada após o processamento e fecha o programa "HOD" e o painel de controle associado.
 
-### Conclusão
+**### Conclusão**
 
 O Convalidacao_Espanha é um projeto útil e eficiente que automatiza o processo de verificação de restrições dos condutores na Espanha. Graças ao trabalho de Diego Patrick e Lucas Fontoura, agora é possível lidar com uma grande demanda de pedidos de forma rápida e eficiente.
