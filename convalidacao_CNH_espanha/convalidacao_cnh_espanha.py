@@ -201,7 +201,6 @@ def abrirPaginaWebHOD(navegador):
     pagina = navegador.get(URL_HOD)
     return pagina
 
-
 def localizarElementoTela(elemento, centro=False):
     coordenadas = tuple()
     if centro:
